@@ -108,6 +108,7 @@ function Betting({ Card_props, setCard_props }) {
     } catch (error) {
       bet_getdata = getdata.current.value = "";
       // setIsLoading(false)
+      // setIsLoading(false)
       setWithdrawbtn("Withdrawal");
 
       console.log("Error while not withdraw ", error);

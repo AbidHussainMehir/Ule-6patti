@@ -1,4 +1,4 @@
-export const contract = "0x10393D8a07621e7B7c48E36C41c72ceBC0A6b3D6";
+export const contract = "0xc5e6Bc0606d38a32D3FA46c1C2e44581076816a0";
 export const abi = [
   {
     inputs: [
@@ -178,6 +178,20 @@ export const abi = [
     type: "function",
   },
   {
+    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
+    name: "setMaxBet",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
+    name: "setMinBet",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
     name: "transferOwnership",
     outputs: [],
@@ -192,7 +206,7 @@ export const abi = [
     type: "function",
   },
 ];
-export const tokenAddress = "0x75260cccE76F2629A9B06FfbA442B228872F81A8";
+export const tokenAddress = "0x3a549866a592C81719F3b714a356A8879E20F5d0";
 export const tokeAbi = [
   {
     anonymous: false,

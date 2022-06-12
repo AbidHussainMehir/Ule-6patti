@@ -31,7 +31,10 @@ function Betting({ Card_props, setCard_props }) {
       } else {
         const web3 = window.web3;
         let tokenapp = new web3.eth.Contract(tokeAbi, tokenAddress);
+        console.log("tokenapp", tokenapp);
+
         let contractAcc = new web3.eth.Contract(abi, contract);
+        console.log("contractAcc", contractAcc);
 
         if (bet_getdata >= 1 && bet_getdata <= 40000) {
           if (bet_getdata < mybalance) {

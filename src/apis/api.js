@@ -19,13 +19,13 @@ const networks = {
     //   blockExplorerUrls: ["https://polygonscan.com/"],
     // },
     chainId: `0x${Number(137).toString(16)}`, // 137
-    chainName: "Polygon Mainnet",
+    chainName: "Polygon",
     nativeCurrency: {
       name: "MATIC Token",
       symbol: "MATIC",
       decimals: 18,
     },
-    rpcUrls: ["https://rpc-mainnet.matic.quiknode.pro"],
+    rpcUrls: ["https://polygon-rpc.com"],
     blockExplorerUrls: ["https://polygonscan.com/"],
   },
 };

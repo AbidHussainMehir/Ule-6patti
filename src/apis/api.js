@@ -10,7 +10,7 @@ const networks = {
     //     decimals: 18,
     //   },
     //   rpcUrls: [
-    //     "https://polygon-rpc.com",
+    //     "https://rpc-mainnet.matic.network",
     //     "https://rpc-mainnet.maticvigil.com ",
     //     "https://rpc-mainnet.matic.network ",
     //     "https://rpc-mainnet.matic.quiknode.pro ",
@@ -25,8 +25,8 @@ const networks = {
       symbol: "MATIC",
       decimals: 18,
     },
-    rpcUrls: ["https://polygon-rpc.com"],
-    blockExplorerUrls: ["https://polygonscan.com/"],
+    rpcUrls: ["https://rpc-mainnet.matic.network"],
+    blockExplorerUrls: ["https://polygonscan.com"],
   },
 };
 const changeNetwork = async ({ networkName }) => {
@@ -71,7 +71,7 @@ export const loadWeb3 = async () => {
       window.web3 = new Web3(window.ethereum);
       await window.ethereum.enable();
       await window.web3.eth.getChainId((err, netId) => {
-        // console.log("networkId==>", netId);
+        console.log("networkId==>", netId);
         switch (netId.toString()) {
           case "137":
             isItConnected = true;

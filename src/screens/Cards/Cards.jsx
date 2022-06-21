@@ -68,7 +68,6 @@ export default function Cards({ setCard_props }) {
 
         let Contract_index = [];
         Contract_index = getCard.usersCardNo;
-        console.log("Get Cards ", Contract_index);
 
         let deme_Array = [];
 
@@ -77,7 +76,6 @@ export default function Cards({ setCard_props }) {
             if (imgArray[i].id == Contract_index[j]) {
               deme_Array.push(imgArray[i]);
 
-              console.log("gwwwwwwwww", imgArray[j]);
               //    setgetId(imgArr   ay[i]);
             }
           }
@@ -112,14 +110,18 @@ export default function Cards({ setCard_props }) {
     setcardIndex(check);
   };
   setCard_props(cardIndex);
-
-  console.log("Tayyab", cardIndex);
+  let tt;
   useEffect(() => {
-    userInfo();
-    // setInterval(() => {
-    // }, 1000);
-  }, [getId]);
-
+    tt = setInterval(() => {
+      userInfo();
+    }, 10000);
+    // }, []);
+  }, []);
+  useEffect(() => {
+    try {
+      return () => clearInterval(tt);
+    } catch (error) {}
+  }, []);
   return (
     <section class="game-section padding-top padding-bottom bg_img bg_img1">
       <div class="container">

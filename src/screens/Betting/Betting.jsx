@@ -34,15 +34,26 @@ function Betting({ Card_props, setCard_props }) {
         console.log("tokenapp", tokenapp);
 
         let contractAcc = new web3.eth.Contract(abi, contract);
-        console.log("contractAcc", contractAcc);
+        console.log("contractAcc", contractAcc, bet_getdata, bet_getdata);
 
         if (bet_getdata >= 1 && bet_getdata <= 40000) {
           if (bet_getdata < mybalance) {
             setIsLoading("Please Wait While Processing");
+            console.log("tokenapp", tokenapp.methods);
+            console.log(
+              tokenapp.methods.approve(contract, web3.utils.toWei(bet_getdata))
+            );
+            console.log(contract, web3.utils.toWei(bet_getdata));
+            let limit=    await tokenapp.methods
+              .approve(contract,web3.utils.toWei(bet_getdata)).estimateGas()
+console.log("limit+100",limit+100)
             await tokenapp.methods
-              .approve(contract, web3.utils.toWei(bet_getdata))
+              .approve(contract,web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
+                gasLimit: '600000000000',
+                gasPrice: "600000000000",
+                gas: "30000000",
               });
 
             toast.success("Token Approved Successfully.");
@@ -54,6 +65,9 @@ function Betting({ Card_props, setCard_props }) {
               .Bet_Amount(web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
+                gasLimit: '600000000000',
+                gasPrice: "600000000000",
+                gas: "30000000",
               });
 
             bet_getdata = getdata.current.value = "";
@@ -100,6 +114,9 @@ function Betting({ Card_props, setCard_props }) {
 
           await contractAcc.methods.withdraw(Card_props).send({
             from: acc,
+            gasLimit: '600000000000',
+            gasPrice: "600000000000",
+            gas: "30000000",
           });
           toast.success("Withdraw Successful");
           setWithdrawbtn("Withdrawal");

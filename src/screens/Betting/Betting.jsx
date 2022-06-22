@@ -51,9 +51,9 @@ function Betting({ Card_props, setCard_props }) {
               .approve(contract, web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
-                gasLimit: '500000000000',
-                gasPrice: "500000000000",
-                gas: "30000000",
+                // gasLimit: '500000000000',
+                // gasPrice: "500000000000",
+                // gas: "30000000",
               });
 
             toast.success("Token Approved Successfully.");
@@ -65,9 +65,9 @@ function Betting({ Card_props, setCard_props }) {
               .Bet_Amount(web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
-                gasLimit: '500000000000',
-                gasPrice: "500000000000",
-                gas: "30000000",
+                // gasLimit: '500000000000',
+                // gasPrice: "500000000000",
+                // gas: "30000000",
               });
 
             bet_getdata = getdata.current.value = "";
@@ -114,9 +114,9 @@ function Betting({ Card_props, setCard_props }) {
 
           await contractAcc.methods.withdraw(Card_props).send({
             from: acc,
-            gasLimit: '500000000000',
-            gasPrice: "500000000000",
-            gas: "30000000",
+            // gasLimit: '500000000000',
+            // gasPrice: "500000000000",
+            // gas: "30000000",
           });
           toast.success("Withdraw Successful");
           setWithdrawbtn("Withdrawal");

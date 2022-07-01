@@ -35,8 +35,8 @@ export default function Footer(props) {
               © Copyright ULE GAME 2022 &nbsp;
               <a
                 target="_blank"
-                href="https://bscscan.com/address/0x10393D8a07621e7B7c48E36C41c72ceBC0A6b3D6#readContract"
-                style={{ color: "#fff", fontweight: "bold" }}
+                href="https://polygonscan.com/address/0xc5e6bc0606d38a32d3fa46c1c2e44581076816a0#code"
+                style={{ color: "#fff", fontweight: "bold" ,cursor:'pointer'}}
               >
                 Smart Contract{" "}
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>

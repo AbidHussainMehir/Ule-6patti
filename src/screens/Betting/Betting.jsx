@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { Card, Container, Row, Form, Col, Button } from "react-bootstrap";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
-
 import { contract, abi, tokenAddress, tokeAbi } from "../../utilies/constant";
 import Web3 from "web3";
 import { loadWeb3 } from "../../apis/api";
@@ -31,43 +30,30 @@ function Betting({ Card_props, setCard_props }) {
       } else {
         const web3 = window.web3;
         let tokenapp = new web3.eth.Contract(tokeAbi, tokenAddress);
-        console.log("tokenapp", tokenapp);
-
         let contractAcc = new web3.eth.Contract(abi, contract);
-        console.log("contractAcc", contractAcc, bet_getdata, bet_getdata);
-
         if (bet_getdata >= 1 && bet_getdata <= 40000) {
           if (bet_getdata < mybalance) {
             setIsLoading("Please Wait While Processing");
-            console.log("tokenapp", tokenapp.methods);
-            console.log(
-              tokenapp.methods.approve(contract, web3.utils.toWei(bet_getdata))
-            );
-            console.log(contract, web3.utils.toWei(bet_getdata));
-            let limit = await tokenapp.methods
-              .approve(contract, web3.utils.toWei(bet_getdata)).estimateGas()
-            console.log("limit+100", limit + 100)
+           
             await tokenapp.methods
               .approve(contract, web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
-                // gasLimit: '500000000000',
-                // gasPrice: "500000000000",
-                // gas: "30000000",
+                gasLimit: '500000000000',
+                gasPrice: "500000000000",
+                gas: "30000000",
               });
 
             toast.success("Token Approved Successfully.");
-            // setIsLoading("Token Approve Successful.")
-
             setIsLoading("Please wait for second confirmation");
 
             await contractAcc.methods
               .Bet_Amount(web3.utils.toWei(bet_getdata))
               .send({
                 from: acc,
-                // gasLimit: '500000000000',
-                // gasPrice: "500000000000",
-                // gas: "30000000",
+                gasLimit: '500000000000',
+                gasPrice: "500000000000",
+                gas: "30000000",
               });
 
             bet_getdata = getdata.current.value = "";
@@ -114,9 +100,9 @@ function Betting({ Card_props, setCard_props }) {
 
           await contractAcc.methods.withdraw(Card_props).send({
             from: acc,
-            // gasLimit: '500000000000',
-            // gasPrice: "500000000000",
-            // gas: "30000000",
+            gasLimit: '500000000000',
+            gasPrice: "500000000000",
+            gas: "30000000",
           });
           toast.success("Withdraw Successful");
           setWithdrawbtn("Withdrawal");
